@@ -9,7 +9,7 @@ list of tab-separated column names, with each subsequent line being an entry in 
 list with tab-separated columns. One column must be named "lemma," and should contain the
 word to test.
 
-NUMBER_OF_STRATA: How many strata to divide the word list into when selecting sample.
+NUMBER_OF_STRATA: How many strata to divide the word list into when selecting the sample.
 
 SAMPLES_PER_STRATA: How many words from each stratum to select for the sample.
 
