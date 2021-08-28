@@ -1,5 +1,20 @@
 #!/usr/bin/env python3
 
+'''Determine familiarity with a random sample of words
+
+Usage: random_sample.py WORDLIST NUMBER_OF_STRATA SAMPLES_PER_STRATA
+
+WORDLIST: Path to file containing the words to test. First line of the file should be a
+list of tab-separated column names, with each subsequent line being an entry in the word
+list with tab-separated columns. One column must be named "lemma," and should contain the
+word to test.
+
+NUMBER_OF_STRATA: How many strata to divide the word list into when selecting sample.
+
+SAMPLES_PER_STRATA: How many words from each stratum to select for the sample.
+
+'''
+
 
 import random, sys
 
@@ -14,22 +29,22 @@ def main (argc, argv):
     stratum_count = int(argv[2])
     samples_per_stratum = int(argv[3])
 
-    # Collect data
+    # Read word list + metadata
     with open(argv[1]) as f:
 
         dict_keys = []
         word_data = []
         for line_number, line in enumerate(f.readlines()):
 
-            # Collect field names from line 8
-            if line_number == 8:
+            # Collect field names
+            if line_number == 0:
                 dict_keys = line.split('\t')
 
             # Construct dictionary of word data
-            elif line_number > 8:
+            elif line_number > 0:
                 word_data.append(dict(zip(dict_keys, line.split('\t'))))
 
-    # Choose samples
+    # Select stratified sample
     sample = []
     stratum_size = len(word_data) // stratum_count
     stratum_lower_bound, stratum_upper_bound = 0, stratum_size
@@ -74,6 +89,7 @@ def main (argc, argv):
 
         print()
 
+    # Print results
     for word, result in results:
         print(f"{word}\t{result}")
     print(f"{score}/{stratum_count*samples_per_stratum} ({score/(stratum_count*samples_per_stratum):.4f})")
