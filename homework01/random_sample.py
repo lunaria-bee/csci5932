@@ -26,7 +26,7 @@ def main (argc, argv):
         exit(-1)
 
     path = argv[1]
-    stratum_count = int(argv[2])
+    number_of_strata = int(argv[2])
     samples_per_stratum = int(argv[3])
 
     # Read word list + metadata
@@ -46,9 +46,9 @@ def main (argc, argv):
 
     # Select stratified sample
     sample = []
-    stratum_size = len(word_data) // stratum_count
+    stratum_size = len(word_data) // number_of_strata
     stratum_lower_bound, stratum_upper_bound = 0, stratum_size
-    for i in range(stratum_count):
+    for i in range(number_of_strata):
 
         # Choose random word from current stratum
         sample.extend(
@@ -92,7 +92,8 @@ def main (argc, argv):
     # Print results
     for word, result in results:
         print(f"{word}\t{result}")
-    print(f"{score}/{stratum_count*samples_per_stratum} ({score/(stratum_count*samples_per_stratum):.4f})")
+    print(f"{score}/{number_of_strata*samples_per_stratum}",
+          f"({score/(number_of_strata*samples_per_stratum):.4f})")
 
 
 if __name__ == '__main__':
