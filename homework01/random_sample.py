@@ -60,7 +60,7 @@ def main (argc, argv):
 
         # Reassign bounds
         stratum_lower_bound = stratum_upper_bound
-        if i == 98:
+        if i == number_of_strata-2:
             # Before the last iteration, expand the stratum to fill the entire remaining
             # word list, to correct for truncating stratum_size.
             stratum_upper_bound = len(word_data)
