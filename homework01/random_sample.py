@@ -52,7 +52,7 @@ def main (argc, argv):
     
     for i in range(number_of_strata):
 
-        # Choose random word from current stratum
+        # Sample words from current stratum
         sample.extend(
             random.sample(
                 word_data[stratum_lower_bound:stratum_upper_bound],
