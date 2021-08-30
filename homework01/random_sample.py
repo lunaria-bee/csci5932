@@ -34,6 +34,7 @@ def main (argc, argv):
 
         dict_keys = []
         word_data = []
+
         for line_number, line in enumerate(f.readlines()):
 
             # Collect field names
@@ -48,6 +49,7 @@ def main (argc, argv):
     sample = []
     stratum_size = len(word_data) // number_of_strata
     stratum_lower_bound, stratum_upper_bound = 0, stratum_size
+    
     for i in range(number_of_strata):
 
         # Choose random word from current stratum
@@ -69,6 +71,7 @@ def main (argc, argv):
     # Determine familiarity
     score = 0
     results = []
+
     for word in sample:
 
         valid_input = False
