@@ -81,7 +81,7 @@ def main (argc, argv):
             print(f"Do you know the word '{word['lemma']}'?")
             choice = input("(1: yes, 0: no)> ")
 
-            valid_input = True
+            valid_input = True # assume input is valid until shown otherwise
             if choice == '0':
                 results.append((word['lemma'], 0))
             elif choice == '1':
