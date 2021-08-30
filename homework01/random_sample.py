@@ -11,7 +11,7 @@ word to test.
 
 NUMBER_OF_STRATA: How many strata to divide the word list into when selecting the sample.
 
-SAMPLES_PER_STRATA: How many words from each stratum to select for the sample.
+SAMPLES_PER_STRATUM: How many words from each stratum to select for the sample.
 
 '''
 
