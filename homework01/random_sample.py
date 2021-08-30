@@ -84,7 +84,7 @@ def main (argc, argv):
                 score += 1
                 results.append((word['lemma'], 1))
             else:
-                print("Error: Invalid input. Must be '1', '2', or '3'.")
+                print("Error: Invalid input. Must be '1' or '0'.")
                 valid_input = False
 
         print()
