@@ -75,6 +75,7 @@ def main (argc, argv):
     for word in sample:
 
         valid_input = False
+
         while not valid_input:
 
             print(f"Do you know the word '{word['lemma']}'?")
